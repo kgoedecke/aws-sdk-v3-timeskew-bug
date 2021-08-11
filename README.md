@@ -4,6 +4,7 @@ Steps to reproduce:
 
 1. Clone this repository
 1. Install dependencies `yarn` or `npm install`
+1. Change values in `.env` file and add your S3 credentials
 1. Set your system time to something in the past
 1. Execute `yarn start`
 1. You will see the error below, meanwhile the timeskew should be auto-corrected as stated in the SDK, see https://github.com/aws/aws-sdk-js-v3/blob/eae65cded5e703306346bdbd1b5de9d23050054a/UPGRADING.md#client-constructors
