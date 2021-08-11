@@ -1,0 +1,22 @@
+ReferenceError: dir is not defined
+    at file:///Users/kevin/workspace/s3-timeskew-middleware/index.js:23:11
+    at ModuleJob.run (node:internal/modules/esm/module_job:175:25)
+    at async Loader.import (node:internal/modules/esm/loader:178:24)
+    at async Object.loadESM (node:internal/process/esm_loader:68:5)
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+kevin@Kevins-Workhorse: ➜  s3-timeskew-middleware  yarn start                                                                                                                                                            [21/08/11 23:38:00]
+yarn run v1.22.10
+warning package.json: No license field
+$ node index.js
+file:///Users/kevin/workspace/s3-timeskew-middleware/index.js:26
+  ContentType: mimetype,
+               ^
+
+ReferenceError: mimetype is not defined
+    at file:///Users/kevin/workspace/s3-timeskew-middleware/index.js:26:16
+    at ModuleJob.run (node:internal/modules/esm/module_job:175:25)
+    at async Loader.import (node:internal/modules/esm/loader:178:24)
+    at async Object.loadESM (node:internal/process/esm_loader:68:5)
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
