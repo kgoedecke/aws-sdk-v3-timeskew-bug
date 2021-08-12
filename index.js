@@ -33,6 +33,23 @@ const s3Params = {
   Body: uploadData.data,
 }
 
+const middleware = (next, _context) => async (args) => {
+  const result = await next(args).catch((error) => {
+    if (error.Code === "RequestTimeTooSkewed") {
+      // console.log('args.request.headers', args.request.headers['x-amz-date']);
+      // const clientTime = new Date(args.request.headers['x-amz-date']).getDate();
+      const serverTime = Date.parse(error.ServerTime);
+      const newOffset = (serverTime - Date.now());
+      s3.config.systemClockOffset = newOffset;
+    }
+    throw error;
+  });
+  return result;
+}
+const options = { step: "finalizeRequest", tags: ["CORRECT_TIME_SKEW"] };
+
+s3.middlewareStack.add(middleware, options);
+
 console.log('date: ', Date.now());
 
 s3.putObject(s3Params);
